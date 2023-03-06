@@ -5,17 +5,18 @@ class BankingAccount {
         this.#balance = balance;
         this.#id = id;
     }
-    getId = () => this.#id;
-    setId = (id) => this.#id = id;
-    getBalance = () => this.#balance;
-    setBalance(balance) {this.#balance = balance};
+    get id() {return this.#id;};
+    set id(id) {this.#id = id;};
+    get balance() {return this.#balance;};
+    set balance(balance) {this.#balance = balance;};
     withdraw = (amount) => this.#balance -= amount;
     deposit = (amount) => this.#balance += amount;
 }
 
 let bankAccount = new BankingAccount(1, 100);
+bankAccount.balance = 400
 
 bankAccount.deposit(10);
-console.log(`bankAccount.getBalance() ${bankAccount.getBalance()}`);
+console.log(`bankAccount.getBalance() ${bankAccount.balance}`);
 bankAccount.withdraw(60);
-console.log(`bankAccount.getBalance() ${bankAccount.getBalance()}`);
+console.log(`bankAccount.getBalance() ${bankAccount.balance}`);
